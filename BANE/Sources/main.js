@@ -18,16 +18,17 @@ var MAPHTML = "";
 
 // ----- static variables -------
 var VIEWSIMAGES = {
-    straight: "https://i.imgur.com/bmgdOvY.png",
-    right: "https://i.imgur.com/LANsK1J.png",
-    left_right: "https://i.imgur.com/bDwmliT.png",
-    left: "https://i.imgur.com/40pN7sh.png",
-    front_left: "https://i.imgur.com/40pN7sh.png",
-    front_right: "https://i.imgur.com/Z0YhmRa.png",
-    freeway: "https://i.imgur.com/rYfAR6H.png",
-    bagend: "https://i.imgur.com/YKmRoBD.png",
-    wall: "https://i.imgur.com/jR0vgS2.png",
-}
+    straight: "../Graphics/Rooms/room_straight.png",
+    right: "../Graphics/Rooms/room_right.png",
+    left_right: "../Graphics/Rooms/room_left_right.png",
+    left: "../Graphics/Rooms/room_left.png",
+    front_left: "../Graphics/Rooms/room_front_left.png",
+    front_right: "../Graphics/Rooms/room_front_right.png",
+    freeway: "../Graphics/Rooms/room_freeway.png",
+    bagend: "../Graphics/Rooms/room_bagend.png",
+    wall: "../Graphics/Rooms/room_wall.png"
+};
+
 
 var MAPTILES = {
     bagend_up: "https://i.imgur.com/k9keFtA.png",
@@ -45,7 +46,8 @@ var MAPTILES = {
     threeways_down: "https://i.imgur.com/L5HOntR.png",
     threeways_left: "https://i.imgur.com/ofj6AEg.png",
     freeway: "https://i.imgur.com/q98kK7X.png"
-}
+};
+
 var ENEMIESTYPES = [
     'Giant rat',
     'Dog',
@@ -71,30 +73,31 @@ var ENEMIESMODIFERS = [
     'dark'
 ];
 
+
 //======== listeners =============
-$("#atk").on('click', function () {});
-$("#def").on('click', function () {});
-$("#turnLeft").on('click', function () {
+jQuery("#atk").on('click', function () {});
+jQuery("#def").on('click', function () {});
+jQuery("#turnLeft").on('click', function () {
     turnPlayerLeft(PLAYER);
     viewGenerate(CURRENTROOM, PLAYER);
 });
-$("#goFront").on('click', function () {
+jQuery("#goFront").on('click', function () {
     movePlayerForward(PLAYER);
     viewGenerate(CURRENTROOM, PLAYER);
 });
-$("#turnRight").on('click', function () {
+jQuery("#turnRight").on('click', function () {
     turnPlayerRight(PLAYER);
     viewGenerate(CURRENTROOM, PLAYER);
 });
-$("#inv").on('click', function () {
-    $("#map").hide();
-    $("#inventory").toggle();
+jQuery("#inv").on('click', function () {
+    jQuery("#map").hide();
+    jQuery("#inventory").toggle();
 });
-$("#mapBtn").on('click', function () {
-    $("#inventory").hide();
-    $("#map").toggle();
+jQuery("#mapBtn").on('click', function () {
+    jQuery("#inventory").hide();
+    jQuery("#map").toggle();
 });
-$("#resetBtn").on('click', function () {
+jQuery("#resetBtn").on('click', function () {
     Init();
 });
 // ------------------------------------------------------------------
@@ -123,17 +126,17 @@ function Init() {
     // ================================ INIT ============================
 
     // init dom element
-    $('#map').html(MAPHTML);
-    $("#map").hide();
-    $("#inventory").hide();
+    jQuery('#map').html(MAPHTML);
+    jQuery("#map").hide();
+    jQuery("#inventory").hide();
 
     //init floor
     floorGenerate(MAXFLOORSIZE);
     PLAYER = new Player("Bane", 1);
-    if (FLOOR[0][0].dirs_available[1] == true) {
+    if (FLOOR[0][0].dirs_available[1] === true) {
         PLAYER.headedTo = 1;
     } else {
-        if (FLOOR[0][0].dirs_available[2] == true) {
+        if (FLOOR[0][0].dirs_available[2] === true) {
             PLAYER.headedTo = 2;
         }
     }
@@ -149,8 +152,9 @@ function Init() {
 
 //-----------------
 
-$(function () { // DOM ready
+jQuery(function () { // DOM ready
     Init();
+
 });
 // -------------------- END MAIN SCRIPT---------------------------
 // -----------------------------------------------------------------
@@ -205,7 +209,7 @@ function viewGenerate(room, player) {
     var headedTo = player.headedTo;
     var viewImage = null;
 
-    if (ways[0] == true && ways[1] == false && ways[2] == true && ways[3] == false) { // straight up
+    if (ways[0] === true && ways[1] === false && ways[2] === true && ways[3] === false) { // straight up
         switch (headedTo) {
             case 0:
                 viewImage = VIEWSIMAGES.straight;
@@ -221,24 +225,7 @@ function viewGenerate(room, player) {
                 break;
         }
     }
-    if (ways[0] == false && ways[1] == true && ways[2] == false && ways[3] == true) { // straight left-right
-        switch (headedTo) {
-            case 0:
-                viewImage = VIEWSIMAGES.wall;
-                break;
-            case 1:
-                viewImage = VIEWSIMAGES.straight;
-                break;
-            case 2:
-                viewImage = VIEWSIMAGES.wall;
-                break;
-            case 3:
-                viewImage = VIEWSIMAGES.straight;
-                break;
-        }
-    }
-
-    if (ways[0] == false && ways[1] == true && ways[2] == false && ways[3] == true) { // straight left-right
+    if (ways[0] === false && ways[1] === true && ways[2] === false && ways[3] === true) { // straight left-right
         switch (headedTo) {
             case 0:
                 viewImage = VIEWSIMAGES.wall;
@@ -255,7 +242,24 @@ function viewGenerate(room, player) {
         }
     }
 
-    if (ways[0] == false && ways[1] == false && ways[2] == true && ways[3] == true) { // angle left-down
+    if (ways[0] === false && ways[1] === true && ways[2] === false && ways[3] === true) { // straight left-right
+        switch (headedTo) {
+            case 0:
+                viewImage = VIEWSIMAGES.wall;
+                break;
+            case 1:
+                viewImage = VIEWSIMAGES.straight;
+                break;
+            case 2:
+                viewImage = VIEWSIMAGES.wall;
+                break;
+            case 3:
+                viewImage = VIEWSIMAGES.straight;
+                break;
+        }
+    }
+
+    if (ways[0] === false && ways[1] === false && ways[2] === true && ways[3] === true) { // angle left-down
         switch (headedTo) {
             case 0:
                 viewImage = VIEWSIMAGES.wall;
@@ -271,7 +275,7 @@ function viewGenerate(room, player) {
                 break;
         }
     }
-    if (ways[0] == false && ways[1] == true && ways[2] == true && ways[3] == false) { // angle right-down
+    if (ways[0] === false && ways[1] === true && ways[2] === true && ways[3] === false) { // angle right-down
         switch (headedTo) {
             case 0:
                 viewImage = VIEWSIMAGES.wall;
@@ -288,7 +292,7 @@ function viewGenerate(room, player) {
         }
     }
 
-    if (ways[0] == true && ways[1] == true && ways[2] == false && ways[3] == false) { // angle right-up
+    if (ways[0] === true && ways[1] === true && ways[2] === false && ways[3] === false) { // angle right-up
         switch (headedTo) {
             case 0:
                 viewImage = VIEWSIMAGES.straight;
@@ -305,7 +309,7 @@ function viewGenerate(room, player) {
         }
     }
 
-    if (ways[0] == true && ways[1] == false && ways[2] == false && ways[3] == true) { // angle left-up
+    if (ways[0] === true && ways[1] === false && ways[2] === false && ways[3] === true) { // angle left-up
         switch (headedTo) {
             case 0:
                 viewImage = VIEWSIMAGES.straight;
@@ -321,7 +325,7 @@ function viewGenerate(room, player) {
                 break;
         }
     }
-    if (ways[0] == false && ways[1] == false && ways[2] == true && ways[3] == false) { // bagend-down
+    if (ways[0] === false && ways[1] === false && ways[2] === true && ways[3] === false) { // bagend-down
         switch (headedTo) {
             case 0:
                 viewImage = VIEWSIMAGES.bagend;
@@ -337,7 +341,7 @@ function viewGenerate(room, player) {
                 break;
         }
     }
-    if (ways[0] == false && ways[1] == true && ways[2] == false && ways[3] == false) { // bagend-right
+    if (ways[0] === false && ways[1] === true && ways[2] === false && ways[3] === false) { // bagend-right
         switch (headedTo) {
             case 0:
                 viewImage = VIEWSIMAGES.wall;
@@ -353,7 +357,7 @@ function viewGenerate(room, player) {
                 break;
         }
     }
-    if (ways[0] == true && ways[1] == false && ways[2] == false && ways[3] == false) { // bagend-up
+    if (ways[0] === true && ways[1] === false && ways[2] === false && ways[3] === false) { // bagend-up
         switch (headedTo) {
             case 0:
                 viewImage = VIEWSIMAGES.straight;
@@ -369,7 +373,7 @@ function viewGenerate(room, player) {
                 break;
         }
     }
-    if (ways[0] == false && ways[1] == false && ways[2] == false && ways[3] == true) { // bagend-left
+    if (ways[0] === false && ways[1] === false && ways[2] === false && ways[3] === true) { // bagend-left
         switch (headedTo) {
             case 0:
                 viewImage = VIEWSIMAGES.wall;
@@ -385,7 +389,7 @@ function viewGenerate(room, player) {
                 break;
         }
     }
-    if (ways[0] == true && ways[1] == true && ways[2] == true && ways[3] == false) { // 3way up left down
+    if (ways[0] === true && ways[1] === true && ways[2] === true && ways[3] === false) { // 3way up left down
         switch (headedTo) {
             case 0:
                 viewImage = VIEWSIMAGES.front_right;
@@ -401,7 +405,7 @@ function viewGenerate(room, player) {
                 break;
         }
     }
-    if (ways[0] == false && ways[1] == true && ways[2] == true && ways[3] == true) { // 3way left right down
+    if (ways[0] === false && ways[1] === true && ways[2] === true && ways[3] === true) { // 3way left right down
         switch (headedTo) {
             case 0:
                 viewImage = VIEWSIMAGES.wall;
@@ -417,7 +421,7 @@ function viewGenerate(room, player) {
                 break;
         }
     }
-    if (ways[0] == true && ways[1] == false && ways[2] == true && ways[3] == true) { // 3way up left down
+    if (ways[0] === true && ways[1] === false && ways[2] === true && ways[3] === true) { // 3way up left down
         switch (headedTo) {
             case 0:
                 viewImage = VIEWSIMAGES.front_left;
@@ -433,7 +437,7 @@ function viewGenerate(room, player) {
                 break;
         }
     }
-    if (ways[0] == true && ways[1] == true && ways[2] == false && ways[3] == true) { // 3way up right down
+    if (ways[0] === true && ways[1] === true && ways[2] === false && ways[3] === true) { // 3way up right down
         switch (headedTo) {
             case 0:
                 viewImage = VIEWSIMAGES.freeway;
@@ -449,7 +453,7 @@ function viewGenerate(room, player) {
                 break;
         }
     }
-    if (ways[0] == true && ways[1] == true && ways[2] == true && ways[3] == true) { // freeway
+    if (ways[0] === true && ways[1] === true && ways[2] === true && ways[3] === true) { // freeway
         switch (headedTo) {
             case 0:
                 viewImage = VIEWSIMAGES.freeway;
@@ -466,16 +470,17 @@ function viewGenerate(room, player) {
         }
     }
 
-    $("#imageView").attr("src", viewImage);
-    $("#long").html("Long : " + room.x);
-    $("#lat").html("Lat : " + room.y);
+    jQuery("#imageView").attr("src", viewImage);
+    jQuery("#long").html("Long : " + room.x);
+    jQuery("#lat").html("Lat : " + room.y);
 
 }
 
 /**
- * change player direction right
+ * change player direction left
  *
- * @return void
+ * @param {type} player
+ * @returns {undefined}
  */
 function turnPlayerRight(player) {
     var headedTo = player.headedTo;
@@ -489,7 +494,8 @@ function turnPlayerRight(player) {
 /**
  * change player direction left
  *
- * @return void
+ * @param {type} player
+ * @returns {undefined}
  */
 function turnPlayerLeft(player) {
     var headedTo = player.headedTo;
@@ -503,22 +509,24 @@ function turnPlayerLeft(player) {
 /**
  * move player to the room he's facing
  *
- * @return void
+ * @param {type} player
+ * @returns {undefined}
  */
+
 function movePlayerForward(player) {
     var headedTo = player.headedTo;
     var ways = CURRENTROOM.dirs_available;
 
-    if (ways[headedTo] == true && headedTo == 0) {
+    if (ways[headedTo] === true && headedTo === 0) {
         CURRENTROOM = FLOOR[CURRENTROOM.x][CURRENTROOM.y - 1];
     }
-    if (ways[headedTo] == true && headedTo == 1) {
+    if (ways[headedTo] === true && headedTo === 1) {
         CURRENTROOM = FLOOR[CURRENTROOM.x + 1][CURRENTROOM.y];
     }
-    if (ways[headedTo] == true && headedTo == 2) {
+    if (ways[headedTo] === true && headedTo === 2) {
         CURRENTROOM = FLOOR[CURRENTROOM.x][CURRENTROOM.y + 1];
     }
-    if (ways[headedTo] == true && headedTo == 3) {
+    if (ways[headedTo] === true && headedTo === 3) {
         CURRENTROOM = FLOOR[CURRENTROOM.x - 1][CURRENTROOM.y];
     }
 }
@@ -546,7 +554,7 @@ function generateMap() {
         MAPHTML += "</tr>";
     }
     MAPHTML += "</table>";
-    $('#map').append(MAPHTML);
+    jQuery('#map').append(MAPHTML);
 }
 
 
@@ -572,8 +580,8 @@ function writeConsole(txt) {
     var date = new Date();
     dateNow = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
     displayTxt += "[" + dateNow + "] : " + txt + "</br>";
-    $('#console').html(displayTxt);
-    $('#console').scrollTop(99999);
+    jQuery('#console').html(displayTxt);
+    jQuery('#console').scrollTop(99999);
 }
 // ------------------------------------------------
 
@@ -639,32 +647,32 @@ function Room(x, y) {
     //this.dirs = [true,true,];
 
     // generating availables directions for the room
-    if (x == 0) {
+    if (x === 0) {
         this.dirs_available[3] = false;
         nbDir--;
     }
-    if (x == MAXFLOORSIZE - 1) {
+    if (x === MAXFLOORSIZE - 1) {
         this.dirs_available[1] = false;
         nbDir--;
     }
-    if (y == 0) {
+    if (y === 0) {
         this.dirs_available[0] = false;
         nbDir--;
     }
-    if (y == MAXFLOORSIZE - 1) {
+    if (y === MAXFLOORSIZE - 1) {
         this.dirs_available[2] = false;
         nbDir--;
     }
 
     for (i = 0; i < 4; i++) {
         // if this way is free...
-        if (this.dirs_available[i] == true) {
+        if (this.dirs_available[i] === true) {
             // and there's still at least two posibilities...
             if (nbDir > 1) {
                 // do we keep it open ?
                 var yes = randomIntFromInterval(0, 2);
-                // yes if yes == 1
-                if (yes == 0) { //nope
+                // yes if yes === 1
+                if (yes === 0) { //nope
                     this.dirs_available[i] = false;
                     nbDir--;
                 }
@@ -676,49 +684,49 @@ function Room(x, y) {
     this.mapTile = null;
     var ways = this.dirs_available;
 
-    if (ways[0] == true && ways[1] == false && ways[2] == true && ways[3] == false) { // straight up
+    if (ways[0] === true && ways[1] === false && ways[2] === true && ways[3] === false) { // straight up
         this.mapTile = MAPTILES.straight_v;
     }
-    if (ways[0] == false && ways[1] == true && ways[2] == false && ways[3] == true) { // straight left-right
+    if (ways[0] === false && ways[1] === true && ways[2] === false && ways[3] === true) { // straight left-right
         this.mapTile = MAPTILES.straight_h;
     }
-    if (ways[0] == false && ways[1] == false && ways[2] == true && ways[3] == true) { // angle left-up
+    if (ways[0] === false && ways[1] === false && ways[2] === true && ways[3] === true) { // angle left-up
         this.mapTile = MAPTILES.left_up;
     }
-    if (ways[0] == false && ways[1] == true && ways[2] == true && ways[3] == false) { // angle right-up
+    if (ways[0] === false && ways[1] === true && ways[2] === true && ways[3] === false) { // angle right-up
         this.mapTile = MAPTILES.right_up;
     }
-    if (ways[0] == true && ways[1] == true && ways[2] == false && ways[3] == false) { // angle right-down
+    if (ways[0] === true && ways[1] === true && ways[2] === false && ways[3] === false) { // angle right-down
         this.mapTile = MAPTILES.right_down;
     }
-    if (ways[0] == true && ways[1] == false && ways[2] == false && ways[3] == true) { // angle left-down
+    if (ways[0] === true && ways[1] === false && ways[2] === false && ways[3] === true) { // angle left-down
         this.mapTile = MAPTILES.left_down;
     }
-    if (ways[0] == false && ways[1] == false && ways[2] == true && ways[3] == false) { // bagend-down
+    if (ways[0] === false && ways[1] === false && ways[2] === true && ways[3] === false) { // bagend-down
         this.mapTile = MAPTILES.bagend_down;
     }
-    if (ways[0] == false && ways[1] == true && ways[2] == false && ways[3] == false) { // bagend-right
+    if (ways[0] === false && ways[1] === true && ways[2] === false && ways[3] === false) { // bagend-right
         this.mapTile = MAPTILES.bagend_right;
     }
-    if (ways[0] == true && ways[1] == false && ways[2] == false && ways[3] == false) { // bagend-up
+    if (ways[0] === true && ways[1] === false && ways[2] === false && ways[3] === false) { // bagend-up
         this.mapTile = MAPTILES.bagend_up;
     }
-    if (ways[0] == false && ways[1] == false && ways[2] == false && ways[3] == true) { // bagend-left
+    if (ways[0] === false && ways[1] === false && ways[2] === false && ways[3] === true) { // bagend-left
         this.mapTile = MAPTILES.bagend_left;
     }
-    if (ways[0] == true && ways[1] == true && ways[2] == true && ways[3] == false) { // 3way up left down
+    if (ways[0] === true && ways[1] === true && ways[2] === true && ways[3] === false) { // 3way up left down
         this.mapTile = MAPTILES.threeways_right;
     }
-    if (ways[0] == false && ways[1] == true && ways[2] == true && ways[3] == true) { // 3way left right down
+    if (ways[0] === false && ways[1] === true && ways[2] === true && ways[3] === true) { // 3way left right down
         this.mapTile = MAPTILES.threeways_down;
     }
-    if (ways[0] == true && ways[1] == false && ways[2] == true && ways[3] == true) { // 3way up left down
+    if (ways[0] === true && ways[1] === false && ways[2] === true && ways[3] === true) { // 3way up left down
         this.mapTile = MAPTILES.threeways_left;
     }
-    if (ways[0] == true && ways[1] == true && ways[2] == false && ways[3] == true) { // 3way up right down
+    if (ways[0] === true && ways[1] === true && ways[2] === false && ways[3] === true) { // 3way up right down
         this.mapTile = MAPTILES.threeways_up;
     }
-    if (ways[0] == true && ways[1] == true && ways[2] == true && ways[3] == true) { // freeway
+    if (ways[0] === true && ways[1] === true && ways[2] === true && ways[3] === true) { // freeway
         this.mapTile = MAPTILES.freeway;
     }
 
