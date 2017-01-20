@@ -31,21 +31,21 @@ var VIEWSIMAGES = {
 
 
 var MAPTILES = {
-    bagend_up: "https://i.imgur.com/k9keFtA.png",
-    bagend_right: "https://i.imgur.com/LNWydqB.png",
-    bagend_down: "https://i.imgur.com/Am8mlSN.png",
-    bagend_left: "https://i.imgur.com/XXBYdsB.png",
-    straight_v: "https://i.imgur.com/kvstK6V.png",
-    straight_h: "https://i.imgur.com/t0mqbaK.png",
-    right_up: "https://i.imgur.com/roxR6Xr.png",
-    left_up: "https://i.imgur.com/KoqwXMd.png",
-    right_down: "https://i.imgur.com/WZwP7Bw.png",
-    left_down: "https://i.imgur.com/YInaXW1.png",
-    threeways_up: "https://i.imgur.com/RsV5Mp1.png",
-    threeways_right: "https://i.imgur.com/pj9nn9b.png",
-    threeways_down: "https://i.imgur.com/L5HOntR.png",
-    threeways_left: "https://i.imgur.com/ofj6AEg.png",
-    freeway: "https://i.imgur.com/q98kK7X.png"
+    bagend_up: "../Graphics/Rooms/bagend-up.png",
+    bagend_right: "../Graphics/Rooms/bagend-right.png",
+    bagend_down: "../Graphics/Rooms/bagend-down.png",
+    bagend_left: "../Graphics/Rooms/bagend-left.png",
+    straight_v: "../Graphics/Rooms/straight-vert.png",
+    straight_h: "../Graphics/Rooms/straight-hori.png",
+    right_up: "../Graphics/Rooms/right-up.png",
+    left_up: "../Graphics/Rooms/left-up.png",
+    right_down: "../Graphics/Rooms/left-down.png",
+    left_down: "../Graphics/Rooms/left-down.png",
+    threeways_up: "../Graphics/Rooms/3ways-up.png",
+    threeways_right: "../Graphics/Rooms/3ways-right.png",
+    threeways_down: "../Graphics/Rooms/3ways-down.png",
+    threeways_left: "../Graphics/Rooms/3ways-left.png",
+    freeway: "../Graphics/Rooms/freeway.png"
 };
 
 var ENEMIESTYPES = [
@@ -75,29 +75,29 @@ var ENEMIESMODIFERS = [
 
 
 //======== listeners =============
-jQuery("#atk").on('click', function () {});
-jQuery("#def").on('click', function () {});
-jQuery("#turnLeft").on('click', function () {
+$("#atk").on('click', function () {});
+$("#def").on('click', function () {});
+$("#turnLeft").on('click', function () {
     turnPlayerLeft(PLAYER);
     viewGenerate(CURRENTROOM, PLAYER);
 });
-jQuery("#goFront").on('click', function () {
+$("#goFront").on('click', function () {
     movePlayerForward(PLAYER);
     viewGenerate(CURRENTROOM, PLAYER);
 });
-jQuery("#turnRight").on('click', function () {
+$("#turnRight").on('click', function () {
     turnPlayerRight(PLAYER);
     viewGenerate(CURRENTROOM, PLAYER);
 });
-jQuery("#inv").on('click', function () {
-    jQuery("#map").hide();
-    jQuery("#inventory").toggle();
+$("#inv").on('click', function () {
+    $("#map").hide();
+    $("#inventory").toggle();
 });
-jQuery("#mapBtn").on('click', function () {
-    jQuery("#inventory").hide();
-    jQuery("#map").toggle();
+$("#mapBtn").on('click', function () {
+    $("#inventory").hide();
+    $("#map").toggle();
 });
-jQuery("#resetBtn").on('click', function () {
+$("#resetBtn").on('click', function () {
     Init();
 });
 // ------------------------------------------------------------------
@@ -126,9 +126,9 @@ function Init() {
     // ================================ INIT ============================
 
     // init dom element
-    jQuery('#map').html(MAPHTML);
-    jQuery("#map").hide();
-    jQuery("#inventory").hide();
+    $('#map').html(MAPHTML);
+    $("#map").hide();
+    $("#inventory").hide();
 
     //init floor
     floorGenerate(MAXFLOORSIZE);
@@ -152,9 +152,8 @@ function Init() {
 
 //-----------------
 
-jQuery(function () { // DOM ready
+$(function () { // DOM ready
     Init();
-
 });
 // -------------------- END MAIN SCRIPT---------------------------
 // -----------------------------------------------------------------
@@ -470,9 +469,9 @@ function viewGenerate(room, player) {
         }
     }
 
-    jQuery("#imageView").attr("src", viewImage);
-    jQuery("#long").html("Long : " + room.x);
-    jQuery("#lat").html("Lat : " + room.y);
+    $("#imageView").attr("src", viewImage);
+    $("#long").html("Long : " + room.x);
+    $("#lat").html("Lat : " + room.y);
 
 }
 
@@ -554,7 +553,7 @@ function generateMap() {
         MAPHTML += "</tr>";
     }
     MAPHTML += "</table>";
-    jQuery('#map').append(MAPHTML);
+    $('#map').append(MAPHTML);
 }
 
 
@@ -580,8 +579,8 @@ function writeConsole(txt) {
     var date = new Date();
     dateNow = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
     displayTxt += "[" + dateNow + "] : " + txt + "</br>";
-    jQuery('#console').html(displayTxt);
-    jQuery('#console').scrollTop(99999);
+    $('#console').html(displayTxt);
+    $('#console').scrollTop(99999);
 }
 // ------------------------------------------------
 
