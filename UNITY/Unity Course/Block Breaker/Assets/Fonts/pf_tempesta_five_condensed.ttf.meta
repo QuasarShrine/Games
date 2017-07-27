@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 983dc8796615c8d4ab0983c9676d1366
+timeCreated: 1495733254
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: PF Tempesta Five Condensed
+  fontNames:
+  - PF Tempesta Five Condensed
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 2ec62e951e0dfe84398c8b1ab7429dff, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

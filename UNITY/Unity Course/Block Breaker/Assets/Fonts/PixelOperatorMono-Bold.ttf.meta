@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 4ad2c23e1de48c9489c676193b0b5a9f
+timeCreated: 1495717738
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Pixel Operator Mono
+  fontNames:
+  - Pixel Operator Mono
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 2d4f25c48a51d2d488a6efc7da5cc437, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

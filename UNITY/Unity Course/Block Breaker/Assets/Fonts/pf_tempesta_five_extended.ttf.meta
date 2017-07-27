@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 7485c63862cf4f240a9008449d7db4a7
+timeCreated: 1495733254
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: PF Tempesta Five Extended
+  fontNames:
+  - PF Tempesta Five Extended
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 0b50923c40c0b5c40a8b4806dffe37e1, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

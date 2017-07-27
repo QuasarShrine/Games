@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: d6c500ed760cdc2419b72e8a85935a99
+timeCreated: 1495733254
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Grixel Acme 9 Regular Bold
+  fontNames:
+  - Grixel Acme 9 Regular Bold
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

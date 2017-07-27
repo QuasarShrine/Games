@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 53e11a1f18aafca4c83be81d454cf463
+timeCreated: 1495733254
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Grixel Acme 5 Wide Bold
+  fontNames:
+  - Grixel Acme 5 Wide Bold
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

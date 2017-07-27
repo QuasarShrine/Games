@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 1652b73c135e3d944a029425d99dd85d
+timeCreated: 1495733254
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Grixel Acme 9 Regular Xtnd
+  fontNames:
+  - Grixel Acme 9 Regular Xtnd
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

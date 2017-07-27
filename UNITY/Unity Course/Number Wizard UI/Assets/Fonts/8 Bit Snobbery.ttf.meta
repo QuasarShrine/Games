@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 27fa3ba2cad4e5b40b85533fde1023ba
+timeCreated: 1494708007
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: AGSFontSetSerif
+  fontNames:
+  - AGSFontSetSerif
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

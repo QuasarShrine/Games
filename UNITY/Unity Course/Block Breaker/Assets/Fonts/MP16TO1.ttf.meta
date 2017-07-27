@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 86cae4599f7e9da45b0e24285c7b06e7
+timeCreated: 1495733254
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Mister Pixel 16 pt - ToolsOne
+  fontNames:
+  - Mister Pixel 16 pt - ToolsOne
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
