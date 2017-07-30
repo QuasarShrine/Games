@@ -31,7 +31,7 @@ public class Ball : MonoBehaviour {
 		
 			if (Input.GetMouseButtonDown(0)) {
 				hasStarted = true;
-				this.transform.GetComponent<Rigidbody2D>().velocity = new Vector2 (2f, 10f);
+				this.transform.GetComponent<Rigidbody2D>().velocity = new Vector2 (3f, 10f);
 			}
 		}
 	}

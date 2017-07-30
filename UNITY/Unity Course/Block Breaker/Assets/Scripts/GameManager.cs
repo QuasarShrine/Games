@@ -15,16 +15,17 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
     void Start() {
         nbLives = 6;
+        textLives.text = "x" + nbLives.ToString();
     }
 
     // Update is called once per frame
     void Update() {
-        textLives.text = "x" + nbLives.ToString();
     }
 
     public void LoseAlife() {
 
         nbLives--;
+        textLives.text = "x" + nbLives.ToString();
 
         if (nbLives <= 0) {
             levelManager = GameObject.FindObjectOfType<LevelManager>();
@@ -35,6 +36,11 @@ public class GameManager : MonoBehaviour {
     }
 
     public void NewBall() {
+
+        Ball oldBall = GameObject.FindObjectOfType<Ball>();
+        if (oldBall) {
+            Destroy(oldBall);
+        }
 
         paddle = GameObject.FindObjectOfType<Paddle>();
         GameObject ball = Instantiate(Resources.Load("Ball")) as GameObject;
