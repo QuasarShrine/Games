@@ -10,6 +10,7 @@ public class Brick : MonoBehaviour {
     public static int breakableCount = 0;
     public GameObject smoke;
 
+    private AudioSource audiosource;
     private int timesHit;
     private LevelManager levelManager;
     private SpriteRenderer spriteR;
@@ -17,6 +18,7 @@ public class Brick : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        audiosource = GetComponent<AudioSource>();
         isBreakable = (this.tag == "Breakable");
         if (isBreakable) {
             breakableCount++;
@@ -31,7 +33,7 @@ public class Brick : MonoBehaviour {
     }
 
     void OnCollisionEnter2D(Collision2D ball) {
-        AudioSource.PlayClipAtPoint(crack, transform.position);
+
         if (isBreakable) {
             HandleHits();
         }
@@ -43,6 +45,7 @@ public class Brick : MonoBehaviour {
         if (timesHit >= maxHits) {
             DestroyBrick();
         } else {
+            audiosource.PlayOneShot(crack);
             LoadSprites();
         }
     }
@@ -54,6 +57,7 @@ public class Brick : MonoBehaviour {
     void DestroyBrick() {
         breakableCount--;
         levelManager.BrickDestroyed();
+        //audiosource.transform.position = transform.position;
         AudioSource.PlayClipAtPoint(explosion, transform.position);
         GeneratePowerUp();
         Puff();
@@ -70,7 +74,7 @@ public class Brick : MonoBehaviour {
             }
         }
     }
-    
+
     void GeneratePowerUp() {
         int perc = Random.Range(0, 100);
         if (perc <= 20) {

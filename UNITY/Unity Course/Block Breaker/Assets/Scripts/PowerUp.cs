@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour {
 
+
+    public AudioClip pickUpSound;
+
+    private AudioSource audiosource;
+
     public enum puTypes { plusSize, minusSize };
 
     [Header("PowerUp type")]
@@ -14,6 +19,7 @@ public class PowerUp : MonoBehaviour {
     // Use this for initialization
     void Start() {
         paddle = GameObject.FindObjectOfType<Paddle>();
+        audiosource = GameObject.FindObjectOfType<AudioSource>();
 
     }
 
@@ -22,7 +28,7 @@ public class PowerUp : MonoBehaviour {
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
+    void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Paddle")) {
             switch (puType) {
                 case puTypes.plusSize:
@@ -32,6 +38,7 @@ public class PowerUp : MonoBehaviour {
                     paddle.DecreasePaddleSize();
                     break;
             }
+            AudioSource.PlayClipAtPoint(pickUpSound, transform.position);
             Destroy(gameObject);
         }
         if (collision.gameObject.CompareTag("LooseCollider")) {
