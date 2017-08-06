@@ -7,8 +7,6 @@ public class PowerUp : MonoBehaviour {
 
     public AudioClip pickUpSound;
 
-    private AudioSource audiosource;
-
     public enum puTypes { plusSize, minusSize };
 
     [Header("PowerUp type")]
@@ -19,8 +17,6 @@ public class PowerUp : MonoBehaviour {
     // Use this for initialization
     void Start() {
         paddle = GameObject.FindObjectOfType<Paddle>();
-        audiosource = GameObject.FindObjectOfType<AudioSource>();
-
     }
 
     // Update is called once per frame
