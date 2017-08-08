@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Paddle : MonoBehaviour {
+public class Paddle : MonoBehaviour
+{
 
-    public bool autoPlay = false;
+    // set this to true for play test
+    private bool autoPlay = false;
+
     public Sprite spriteSmall, spriteNorm, spriteBig;
 
+    // to manage paddle sizes
     public enum AllpaddleSize { small, norm, big };
     public AllpaddleSize paddleSize;
+
+
     private Ball ball;
     private PolygonCollider2D[] colliders;
 
@@ -37,18 +43,29 @@ public class Paddle : MonoBehaviour {
         this.transform.position = paddlePos;
     }
 
+
+    // for play test purpose
+    // notes : it could be use for another power up ;)
     void AutoPlay() {
+
+        // we check if the ball is still here (destroyed for any reason)
+        if (!ball) {
+            ball = GameObject.FindObjectOfType<Ball>();
+        }
         Vector3 paddlePos = new Vector3(0.5f, this.transform.position.y, 0f);
         Vector3 ballPostion = ball.transform.position;
         paddlePos.x = Mathf.Clamp(ballPostion.x, 0.5f, 15.5f);
         this.transform.position = paddlePos;
     }
 
-
+    /**
+     * Return the paddle's size flag
+     **/
     private AllpaddleSize GetPaddleSize() {
         return this.paddleSize;
     }
 
+    // increase the paddle size by changing colider and sprites
     public void IncreasePaddleSize() {
         AllpaddleSize pSize = this.GetPaddleSize();
         switch (pSize) {
@@ -65,6 +82,8 @@ public class Paddle : MonoBehaviour {
         }
     }
 
+
+    // decrease the paddle size by changing colider and sprites
     public void DecreasePaddleSize() {
         AllpaddleSize pSize = this.GetPaddleSize();
         switch (pSize) {
@@ -81,6 +100,7 @@ public class Paddle : MonoBehaviour {
         }
     }
 
+    // enable the collider we want to match paddle size
     private void EnableCollider(AllpaddleSize cSize) {
         switch (cSize) {
             case AllpaddleSize.small:
