@@ -25,6 +25,7 @@ Here are the games I've made along this course (more coming soon). They are comm
 	- *PowerUps* : one increase the paddle size, the other will decrease it.
 	- *Credit Page* : I wanted to credit some of the software and artist I used along this game's developpement.
 	- *"Suicide" key* : If the ball get stuck (see "KNOWN BUGS" bellow) it allow the player to get new ball by losing a life, destroying the actual one and instantiating a new one. The key is "R".
+	- *Fireworks* : Just for fun, I added fireworks, made with the particle system, on the Win scene. Their sound'spitch is modified according to their number of particles emitted.
  - **KNOWN BUGS** : 
  	- For some mysterious reasons, the ball may be stuck on walls or roof without being able to do anything else than going along back and forth the obstacle.
  - **SUGGESTIONS FOR THE FUTURE** :
