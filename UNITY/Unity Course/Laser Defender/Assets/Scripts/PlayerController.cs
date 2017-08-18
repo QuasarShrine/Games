@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    public GameObject weaponType;
+    public float projectileSpeed;
 
     public float speed = 15.0f; // number of pixels the ship will move every frame
 
@@ -22,6 +24,16 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+
+        if (Input.GetKey(KeyCode.Space)) {
+            GameObject projectile = Instantiate(weaponType, new Vector3(transform.position.x, transform.position.y + 0.5f,0),Quaternion.identity) as GameObject;
+            projectile.GetComponent<Rigidbody2D>().velocity = new Vector3(0, projectileSpeed, 0);
+        }
+
+        MoveShip();
+    }
+
+    void MoveShip() {
         // using a temp variable to ensure we don't move the player too
         // far BEFORE restricting his X to playspace boundaries
         Vector3 tempPos = transform.position;
@@ -36,6 +48,5 @@ public class PlayerController : MonoBehaviour
         // restrict player to playspace boundaries
         float newX = Mathf.Clamp(tempPos.x, xmin, xmax);
         transform.position = new Vector3(newX, tempPos.y, tempPos.z);
-
     }
 }
