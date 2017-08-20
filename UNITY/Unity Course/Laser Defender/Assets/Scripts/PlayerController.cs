@@ -5,8 +5,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    private float health = 250f;
+
     public GameObject weaponType;
     public float projectileSpeed;
+    public float fireRate;
 
     public float speed = 15.0f; // number of pixels the ship will move every frame
 
@@ -22,12 +25,35 @@ public class PlayerController : MonoBehaviour
         xmax = rightmost.x - playSpacePadding;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision) {
+
+        Projectile projectile = collision.gameObject.GetComponent<Projectile>();
+        if (projectile) {
+            health -= projectile.GetDamage();
+            projectile.Hit();
+            Debug.Log(health);
+            if (health <= 0) {
+                Destroy(gameObject);
+            }
+        }
+    }
+
+
+
+    void Fire() {
+        GameObject projectile = Instantiate(weaponType, new Vector3(transform.position.x, transform.position.y + 0.5f, 0), Quaternion.identity) as GameObject;
+        projectile.GetComponent<Rigidbody2D>().velocity = new Vector3(0, projectileSpeed, 0);
+    }
+
     // Update is called once per frame
     void Update() {
 
-        if (Input.GetKey(KeyCode.Space)) {
-            GameObject projectile = Instantiate(weaponType, new Vector3(transform.position.x, transform.position.y + 0.5f,0),Quaternion.identity) as GameObject;
-            projectile.GetComponent<Rigidbody2D>().velocity = new Vector3(0, projectileSpeed, 0);
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            InvokeRepeating("Fire", 0.0000001f, fireRate);
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space)) {
+            CancelInvoke("Fire");
         }
 
         MoveShip();

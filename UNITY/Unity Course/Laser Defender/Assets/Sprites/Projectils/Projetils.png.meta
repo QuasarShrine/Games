@@ -1,10 +1,11 @@
 fileFormatVersion: 2
 guid: 1800d743b785ea349beb207b927684e3
-timeCreated: 1503054709
+timeCreated: 1503238831
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Projetils_0
+    21300002: Projetils_1
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -96,9 +97,23 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 6
-        y: 72
+        y: 232
         width: 6
         height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Projetils_1
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 202
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
