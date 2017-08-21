@@ -10,9 +10,18 @@ public class EnemyBehaviour : MonoBehaviour {
     public float projectileSpeed;
     public float fireRate;
 
+    public float shotsPerSeconds = 0.5f;
+
     void Fire() {
-        GameObject projectile = Instantiate(weaponType, new Vector3(transform.position.x, transform.position.y - 0.5f, 0), Quaternion.identity) as GameObject;
+        GameObject projectile = Instantiate(weaponType, new Vector3(transform.position.x, transform.position.y - 0.7f, 0), Quaternion.identity) as GameObject;
         projectile.GetComponent<Rigidbody2D>().velocity = new Vector3(0, -projectileSpeed, 0);
+    }
+
+    private void Update() {
+        float probability = Time.deltaTime * shotsPerSeconds;
+        if(Random.value < probability) {
+            Fire();
+        }
     }
 
     private void Start() {
@@ -24,7 +33,6 @@ public class EnemyBehaviour : MonoBehaviour {
         Projectile projectile = collision.gameObject.GetComponent<Projectile>();
         if (projectile) {
             health -= projectile.GetDamage();
-            //Debug.Log(projectile.GetDamage());
             projectile.Hit();
             if (health <= 0) {
                 CancelInvoke("Fire");

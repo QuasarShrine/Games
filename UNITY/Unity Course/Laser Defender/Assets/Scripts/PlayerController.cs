@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
 
         Projectile projectile = collision.gameObject.GetComponent<Projectile>();
+        Debug.Log(projectile);
         if (projectile) {
             health -= projectile.GetDamage();
             projectile.Hit();

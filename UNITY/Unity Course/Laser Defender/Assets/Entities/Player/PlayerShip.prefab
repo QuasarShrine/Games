@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114317609563388162}
   - component: {fileID: 50807943666462040}
   - component: {fileID: 60938973071597758}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1460750016395436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.014953718, y: -5.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -115,7 +115,7 @@ MonoBehaviour:
   weaponType: {fileID: 1476194603989544, guid: e18f7789fa12a1d4f89ce14abe8fa215, type: 2}
   projectileSpeed: 5
   fireRate: 0.2
-  speed: 10.88
+  speed: 7
   playSpacePadding: 0.45
 --- !u!212 &212253149856263012
 SpriteRenderer:
