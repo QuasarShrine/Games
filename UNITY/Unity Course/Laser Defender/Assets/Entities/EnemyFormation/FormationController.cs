@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class FormationController : MonoBehaviour
 {
 
     public GameObject enemyPrefab;
@@ -11,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
     //public float playSpacePadding = 0.5f;
 
     public float speed = 15.0f; // number of pixels the ships will move every frame
+    public float spawnDealy = 0.5f;
 
     private float newX;
 
@@ -27,6 +28,10 @@ public class EnemySpawner : MonoBehaviour
         xmin = leftmost.x;
         xmax = rightmost.x;
 
+        SpanwUntilFull();
+    }
+
+    void SpawnEnemies() {
         foreach (Transform child in transform) {
             GameObject enemy = Instantiate(enemyPrefab, child.position, Quaternion.identity) as GameObject;
             enemy.transform.parent = child;
@@ -39,6 +44,43 @@ public class EnemySpawner : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+
+        MoveFormation();
+
+        if (AllMembersAreDead()) {
+            SpanwUntilFull();
+        }
+    }
+
+    Transform NextFreePosition() {
+        foreach (Transform childPostionGameObject in transform) {
+            if (childPostionGameObject.childCount == 0) {
+                return childPostionGameObject;
+            }
+        }
+        return null;
+    }
+
+    void SpanwUntilFull() {
+        Transform freePosition = NextFreePosition();
+        if (freePosition) {
+            GameObject enemy = Instantiate(enemyPrefab, freePosition.position, Quaternion.identity) as GameObject;
+            enemy.transform.parent = freePosition;
+            Invoke("SpanwUntilFull", spawnDealy);
+        }
+    }
+
+
+    bool AllMembersAreDead() {
+        foreach (Transform childPostionGameObject in transform) {
+            if (childPostionGameObject.childCount > 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    void MoveFormation() {
         Vector3 tempPos = transform.position;
 
         float rightEdgeOfFormation = transform.position.x + (0.5f * width);
@@ -62,3 +104,4 @@ public class EnemySpawner : MonoBehaviour
         transform.position = new Vector3(newX, tempPos.y, tempPos.z);
     }
 }
+

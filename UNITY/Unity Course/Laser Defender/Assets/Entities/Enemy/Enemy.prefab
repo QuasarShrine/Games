@@ -80,7 +80,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: {fileID: 1476194603989544, guid: 2072592046b0527438d95d572595cd2c, type: 2}
   projectileSpeed: 2
-  fireRate: 1.5
+  fireRate: 4
+  shotsPerSeconds: 0.5
 --- !u!212 &212107553649684456
 SpriteRenderer:
   m_ObjectHideFlags: 1

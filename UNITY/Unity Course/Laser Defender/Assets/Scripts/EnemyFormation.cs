@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehaviour : MonoBehaviour {
+public class EnemyFormation : MonoBehaviour {
 
     private float health = 150f;
 
@@ -25,7 +25,7 @@ public class EnemyBehaviour : MonoBehaviour {
     }
 
     private void Start() {
-        InvokeRepeating("Fire", 1f , fireRate);
+        //InvokeRepeating("Fire", 1f , fireRate);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
