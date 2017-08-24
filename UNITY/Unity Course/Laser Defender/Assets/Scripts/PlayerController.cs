@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 15.0f; // number of pixels the ship will move every frame
 
-    private float xmin, xmax;
+    private float xmin, xmax, ymin, ymax;
     public float playSpacePadding = 0.5f;
 
     // Use this for initialization
@@ -21,8 +21,12 @@ public class PlayerController : MonoBehaviour
         float distance = transform.position.z - Camera.main.transform.position.z;
         Vector3 leftmost = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, distance));
         Vector3 rightmost = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, distance));
+        Vector3 uptmost = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, distance));
+        Vector3 bottommost = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, distance));
         xmin = leftmost.x + playSpacePadding;
         xmax = rightmost.x - playSpacePadding;
+        ymax = uptmost.y - playSpacePadding;
+        ymin = bottommost.y + playSpacePadding;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -37,6 +41,30 @@ public class PlayerController : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+            //Debug.Log(collision);
+        // force is how forcefully we will push the player away from the enemy.
+        //float force = 3;
+
+        //// If the object we hit is the enemy
+        //if (collision.gameObject.CompareTag("Enemies")) {
+            
+        //    // Calculate Angle Between the collision point and the player
+        //    Vector3 contactVector = new Vector3(collision.contacts[0].point.x, collision.contacts[0].point.y, 0);
+        //    Vector3 dir = contactVector - transform.position;
+
+        //    // We then get the opposite (-Vector3) and normalize it
+        //    dir = -dir.normalized;
+        //    Debug.Log("contactVector = " + contactVector + " and dir = " + dir);
+
+        //    // And finally we add force in the direction of dir and multiply it by force. 
+        //    // This will push back the player
+        //    GetComponent<Rigidbody2D>().AddForce(dir);
+        //}
     }
 
 
@@ -71,9 +99,16 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow)) {
             tempPos += Vector3.right * speed * Time.deltaTime;
         }
+        if (Input.GetKey(KeyCode.UpArrow)) {
+            tempPos += Vector3.up * speed * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.DownArrow)) {
+            tempPos += Vector3.down * speed * Time.deltaTime;
+        }
 
         // restrict player to playspace boundaries
         float newX = Mathf.Clamp(tempPos.x, xmin, xmax);
-        transform.position = new Vector3(newX, tempPos.y, tempPos.z);
+        float newY = Mathf.Clamp(tempPos.y, ymin, ymax);
+        transform.position = new Vector3(newX, newY, tempPos.z);
     }
 }

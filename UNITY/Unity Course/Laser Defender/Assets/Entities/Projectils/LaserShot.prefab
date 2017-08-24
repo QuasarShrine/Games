@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50445495907518414}
   - component: {fileID: 61137064608727818}
   - component: {fileID: 114258456328049630}
+  - component: {fileID: 95550289249969280}
   m_Layer: 11
   m_Name: LaserShot
   m_TagString: Untagged
@@ -75,19 +76,36 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.049316823}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.06, y: 0.2}
+    oldSize: {x: 0.08, y: 0.28}
     newSize: {x: 0.06, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.06, y: 0.2}
+  m_Size: {x: 0.079864025, y: 0.1397239}
   m_EdgeRadius: 0
+--- !u!95 &95550289249969280
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1476194603989544}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 13571c87895d36642869b4f346fadb18, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114258456328049630
 MonoBehaviour:
   m_ObjectHideFlags: 1
