@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public float projectileSpeed;
     public float fireRate;
 
+    public AudioClip hurt;
+
     public float speed = 15.0f; // number of pixels the ship will move every frame
 
     private float xmin, xmax, ymin, ymax;
@@ -36,7 +38,7 @@ public class PlayerController : MonoBehaviour
         if (projectile) {
             health -= projectile.GetDamage();
             projectile.Hit();
-            Debug.Log(health);
+            AudioSource.PlayClipAtPoint(hurt, transform.position);
             if (health <= 0) {
                 Destroy(gameObject);
             }
@@ -72,6 +74,7 @@ public class PlayerController : MonoBehaviour
     void Fire() {
         GameObject projectile = Instantiate(weaponType, new Vector3(transform.position.x, transform.position.y + 0.5f, 0), Quaternion.identity) as GameObject;
         projectile.GetComponent<Rigidbody2D>().velocity = new Vector3(0, projectileSpeed, 0);
+        projectile.GetComponent<Projectile>().Shoot();
     }
 
     // Update is called once per frame

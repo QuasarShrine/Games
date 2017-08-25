@@ -120,7 +120,9 @@ MonoBehaviour:
   weaponType: {fileID: 1476194603989544, guid: 2072592046b0527438d95d572595cd2c, type: 2}
   projectileSpeed: 2
   fireRate: 4
+  scoreValue: 150
   shotsPerSeconds: 0.5
+  hurt: {fileID: 8300000, guid: 62693954e230d18449b99dd6d9ddad51, type: 3}
 --- !u!212 &212107553649684456
 SpriteRenderer:
   m_ObjectHideFlags: 1

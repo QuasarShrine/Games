@@ -5,6 +5,12 @@ using UnityEngine;
 public class Projectile : MonoBehaviour {
 
     public float damage = 100f;
+    public AudioClip soundEffect;
+
+
+    public void Shoot() {
+        AudioSource.PlayClipAtPoint(soundEffect, transform.position);
+    }
 
     public float GetDamage() {
         return damage;

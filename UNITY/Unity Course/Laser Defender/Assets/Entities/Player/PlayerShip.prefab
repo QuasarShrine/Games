@@ -115,6 +115,7 @@ MonoBehaviour:
   weaponType: {fileID: 1476194603989544, guid: e18f7789fa12a1d4f89ce14abe8fa215, type: 2}
   projectileSpeed: 5
   fireRate: 0.2
+  hurt: {fileID: 8300000, guid: d7ca27aeec162d04fac8a24413108997, type: 3}
   speed: 7
   playSpacePadding: 0.45
 --- !u!212 &212253149856263012

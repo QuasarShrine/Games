@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50445495907518414}
   - component: {fileID: 114737778097388060}
   - component: {fileID: 58567090146179346}
+  - component: {fileID: 95679224262444514}
   m_Layer: 10
   m_Name: FireBoltShot
   m_TagString: Untagged
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1476194603989544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.9226565, y: -1.4714394, z: 0}
+  m_LocalPosition: {x: -6.222, y: -3.7940836, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,6 +79,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.042107917
+--- !u!95 &95679224262444514
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1476194603989544}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 80e02c28daba80142ac8afcd9a0e99e6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114737778097388060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,6 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
+  soundEffect: {fileID: 8300000, guid: 00353024543bcaf4896f54f4cb310d46, type: 3}
 --- !u!212 &212493765006672244
 SpriteRenderer:
   m_ObjectHideFlags: 1
