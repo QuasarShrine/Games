@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Properties")]
+    public float health = 250f;
+    public float speed = 15.0f; // number of pixels the ship will move every frame
+    public float playSpacePadding = 0.5f;
 
-    private float health = 250f;
-
+    [Header("Weapon")]
     public GameObject weaponType;
     public float projectileSpeed;
     public float fireRate;
 
+    [Header("Sounds Effects")]
     public AudioClip hurt;
+    public AudioClip die;
 
-    public float speed = 15.0f; // number of pixels the ship will move every frame
 
     private float xmin, xmax, ymin, ymax;
-    public float playSpacePadding = 0.5f;
 
     // Use this for initialization
     void Start() {
@@ -32,49 +35,32 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-
         Projectile projectile = collision.gameObject.GetComponent<Projectile>();
-        Debug.Log(projectile);
         if (projectile) {
-            health -= projectile.GetDamage();
-            projectile.Hit();
-            AudioSource.PlayClipAtPoint(hurt, transform.position);
+            Hurt(projectile);
             if (health <= 0) {
-                Destroy(gameObject);
+                Die();
             }
         }
-
-
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-            //Debug.Log(collision);
-        // force is how forcefully we will push the player away from the enemy.
-        //float force = 3;
-
-        //// If the object we hit is the enemy
-        //if (collision.gameObject.CompareTag("Enemies")) {
-            
-        //    // Calculate Angle Between the collision point and the player
-        //    Vector3 contactVector = new Vector3(collision.contacts[0].point.x, collision.contacts[0].point.y, 0);
-        //    Vector3 dir = contactVector - transform.position;
-
-        //    // We then get the opposite (-Vector3) and normalize it
-        //    dir = -dir.normalized;
-        //    Debug.Log("contactVector = " + contactVector + " and dir = " + dir);
-
-        //    // And finally we add force in the direction of dir and multiply it by force. 
-        //    // This will push back the player
-        //    GetComponent<Rigidbody2D>().AddForce(dir);
-        //}
+    public void Hurt(Projectile projectile) {
+        health -= projectile.GetDamage();
+        AudioSource.PlayClipAtPoint(hurt, transform.position);
+        projectile.Hit();
     }
 
+    public void Die() {
+        AudioSource.PlayClipAtPoint(die, transform.position);
+        Destroy(gameObject);
+    }
 
 
     void Fire() {
-        GameObject projectile = Instantiate(weaponType, new Vector3(transform.position.x, transform.position.y + 0.5f, 0), Quaternion.identity) as GameObject;
+        GameObject projectile = Instantiate(weaponType, transform.position, Quaternion.identity) as GameObject;
         projectile.GetComponent<Rigidbody2D>().velocity = new Vector3(0, projectileSpeed, 0);
         projectile.GetComponent<Projectile>().Shoot();
+        projectile.GetComponent<SpriteRenderer>().sortingLayerName = "PlayerProjectiles";
     }
 
     // Update is called once per frame

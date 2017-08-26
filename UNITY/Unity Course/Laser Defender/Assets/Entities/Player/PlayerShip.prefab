@@ -112,12 +112,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec964e7aa505ae49b7a31c6806f753f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponType: {fileID: 1476194603989544, guid: e18f7789fa12a1d4f89ce14abe8fa215, type: 2}
-  projectileSpeed: 5
-  fireRate: 0.2
-  hurt: {fileID: 8300000, guid: d7ca27aeec162d04fac8a24413108997, type: 3}
+  health: 250
   speed: 7
   playSpacePadding: 0.45
+  weaponType: {fileID: 1476194603989544, guid: e18f7789fa12a1d4f89ce14abe8fa215, type: 2}
+  projectileSpeed: 7
+  fireRate: 0.1
+  hurt: {fileID: 8300000, guid: d7ca27aeec162d04fac8a24413108997, type: 3}
+  die: {fileID: 8300000, guid: 7f8f7f9b2f76f5e4b996890741f43851, type: 3}
 --- !u!212 &212253149856263012
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -147,8 +149,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1969590225
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3cc2320986bc3b041aa3eb366c6850f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

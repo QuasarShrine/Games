@@ -10,8 +10,6 @@ public class GameManager : MonoBehaviour
     public Text textLives;
 
     private LevelManager levelManager;
-    //private Paddle paddle;
-    private Vector3 paddleToBallVector;
 
     // Use this for initialization
     void Start()

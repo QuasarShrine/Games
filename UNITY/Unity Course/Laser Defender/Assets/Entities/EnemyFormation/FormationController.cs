@@ -4,21 +4,17 @@ using UnityEngine;
 
 public class FormationController : MonoBehaviour
 {
-
+    [Header("Properties")]
     public GameObject enemyPrefab;
+    public float speed = 15.0f; // number of pixels the ships will move every frame
+    public float spawnDelay = 0.5f;
+    public float width = 10f;
+    public float height = 5f;
 
     private float xmin, xmax;
-    //public float playSpacePadding = 0.5f;
-
-    public float speed = 15.0f; // number of pixels the ships will move every frame
-    public float spawnDealy = 0.5f;
-
-    private float newX;
 
     private bool isGoingRight = true;
 
-    public float width = 10f;
-    public float height = 5f;
 
     // Use this for initialization
     void Start() {
@@ -66,7 +62,7 @@ public class FormationController : MonoBehaviour
         if (freePosition) {
             GameObject enemy = Instantiate(enemyPrefab, freePosition.position, Quaternion.identity) as GameObject;
             enemy.transform.parent = freePosition;
-            Invoke("SpanwUntilFull", spawnDealy);
+            Invoke("SpanwUntilFull", spawnDelay);
         }
     }
 

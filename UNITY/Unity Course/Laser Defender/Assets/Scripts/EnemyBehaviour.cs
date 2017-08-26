@@ -2,18 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehaviour : MonoBehaviour {
+public class EnemyBehaviour : MonoBehaviour
+{
+    [Header("Properties")]
+    public float health = 150f;
+    public int scoreValue = 150;
 
-    private float health = 150f;
-
+    [Header("Weapon")]
     public GameObject weaponType;
     public float projectileSpeed;
     public float fireRate;
-    public int scoreValue = 150;
-
     public float shotsPerSeconds = 0.5f;
 
+
+    [Header("Sounds effects")]
     public AudioClip hurt;
+    public AudioClip die;
 
     private ScoreKeeper scoreKeeper;
 
@@ -22,14 +26,15 @@ public class EnemyBehaviour : MonoBehaviour {
     }
 
     void Fire() {
-        GameObject projectile = Instantiate(weaponType, new Vector3(transform.position.x, transform.position.y - 0.7f, 0), Quaternion.identity) as GameObject;
+        GameObject projectile = Instantiate(weaponType, transform.position, Quaternion.identity) as GameObject;
         projectile.GetComponent<Rigidbody2D>().velocity = new Vector3(0, -projectileSpeed, 0);
         projectile.GetComponent<Projectile>().Shoot();
+        projectile.GetComponent<SpriteRenderer>().sortingLayerName = "EnemyProjectiles";
     }
 
     private void Update() {
         float probability = Time.deltaTime * shotsPerSeconds;
-        if(Random.value < probability) {
+        if (Random.value < probability) {
             Fire();
         }
     }
@@ -39,15 +44,23 @@ public class EnemyBehaviour : MonoBehaviour {
 
         Projectile projectile = collision.gameObject.GetComponent<Projectile>();
         if (projectile) {
-            health -= projectile.GetDamage();
-            projectile.Hit();
-            AudioSource.PlayClipAtPoint(hurt, transform.position);
+            Hurt(projectile);
             if (health <= 0) {
-                CancelInvoke("Fire");
-                Destroy(gameObject);
-                scoreKeeper.Score(scoreValue);
+                Die();
             }
-
         }
+    }
+
+    public void Hurt(Projectile projectile) {
+        health -= projectile.GetDamage();
+        AudioSource.PlayClipAtPoint(hurt, transform.position);
+        projectile.Hit();
+    }
+
+    public void Die() {
+        CancelInvoke("Fire");
+        AudioSource.PlayClipAtPoint(die, transform.position);
+        Destroy(gameObject);
+        scoreKeeper.Score(scoreValue);
     }
 }
