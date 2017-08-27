@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour {
 
-    static MusicPlayer musicPlayer = null;
+    //static MusicPlayer musicPlayer = null;
 
-    void Awake() {
-        if (musicPlayer != null) {
-            Destroy(gameObject);
-        } else {
-            musicPlayer = this;
-            GameObject.DontDestroyOnLoad(gameObject);
-        }
-    }
+    //void Awake() {
+    //    if (musicPlayer != null) {
+    //        Destroy(gameObject);
+    //    } else {
+    //        musicPlayer = this;
+    //        GameObject.DontDestroyOnLoad(gameObject);
+    //    }
+    //}
 
 }

@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("Weapon")]
     public GameObject weaponType;
-    public float projectileSpeed;
     public float fireRate;
 
     [Header("Sounds Effects")]
@@ -58,7 +57,7 @@ public class PlayerController : MonoBehaviour
 
     void Fire() {
         GameObject projectile = Instantiate(weaponType, transform.position, Quaternion.identity) as GameObject;
-        projectile.GetComponent<Rigidbody2D>().velocity = new Vector3(0, projectileSpeed, 0);
+        projectile.GetComponent<Rigidbody2D>().velocity = new Vector3(0, projectile.GetComponent<Projectile>().GetSpeed(), 0);
         projectile.GetComponent<Projectile>().Shoot();
         projectile.GetComponent<SpriteRenderer>().sortingLayerName = "PlayerProjectiles";
     }
