@@ -6,13 +6,20 @@ public class Projectile : MonoBehaviour {
 
     public float damage = 100f;
     public float speed = 7f;
+    public float powerNeed = 5f;
     public AudioClip soundEffect;
 
 
     public void Shoot() {
         AudioSource.PlayClipAtPoint(soundEffect, transform.position,2f);
     }
+    public void Hit() {
+        Destroy(gameObject);
+    }
 
+
+
+    // =============== Getters =========================
     public float GetDamage() {
         return damage;
     }
@@ -21,8 +28,8 @@ public class Projectile : MonoBehaviour {
         return speed;
     }
 
-    public void Hit() {
-        Destroy(gameObject);
+    public float GetPowerNeed() {
+        return powerNeed;
     }
 
 }

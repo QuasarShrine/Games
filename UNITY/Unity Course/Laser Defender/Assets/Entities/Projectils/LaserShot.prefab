@@ -80,7 +80,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.08, y: 0.28}
+    oldSize: {x: 0.12, y: 0.28}
     newSize: {x: 0.06, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -118,6 +118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
+  speed: 7
+  powerNeed: 10
   soundEffect: {fileID: 8300000, guid: 5e2181afdbc651f48927ec6c8e929507, type: 3}
 --- !u!212 &212493765006672244
 SpriteRenderer:

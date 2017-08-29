@@ -25,11 +25,41 @@ GameObject:
   - component: {fileID: 60938973071597758}
   m_Layer: 8
   m_Name: Buffalo
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1753045451450168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4529791603080496}
+  - component: {fileID: 212119998293537684}
+  - component: {fileID: 95068603665556780}
+  m_Layer: 8
+  m_Name: BlueFlames
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4529791603080496
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1753045451450168}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.004, y: -0.342, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4859966541069252}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4859966541069252
 Transform:
   m_ObjectHideFlags: 1
@@ -37,9 +67,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1460750016395436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.014953718, y: -5.46, z: 0}
+  m_LocalPosition: {x: 0, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4529791603080496}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -71,7 +102,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1460750016395436}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: e14c62a90bacdc54ba8ab81d3352fb25, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -80,7 +111,7 @@ PolygonCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.8, y: 0.64}
-    newSize: {x: 1.6, y: 1.28}
+    newSize: {x: 0.8, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -101,6 +132,23 @@ PolygonCollider2D:
       - {x: 0.28483033, y: -0.19368362}
       - {x: 0.35742134, y: -0.19540834}
       - {x: 0.35327005, y: 0.027990341}
+--- !u!95 &95068603665556780
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1753045451450168}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5c8a3a6c14c7dc840b256c18a3abc02e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114317609563388162
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,14 +160,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec964e7aa505ae49b7a31c6806f753f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 250
   speed: 7
   playSpacePadding: 0.45
+  weaponSlot: 1
   weaponType: {fileID: 1476194603989544, guid: e18f7789fa12a1d4f89ce14abe8fa215, type: 2}
-  projectileSpeed: 7
-  fireRate: 0.1
+  fireRate: 0.3
+  power: 100
+  maxPower: 1000
+  frequency: 1
+  shieldRegen: 50
+  shieldMax: 300
+  shieldAmount: 200
+  restartShieldTime: 2
+  armor: 500
   hurt: {fileID: 8300000, guid: d7ca27aeec162d04fac8a24413108997, type: 3}
   die: {fileID: 8300000, guid: 7f8f7f9b2f76f5e4b996890741f43851, type: 3}
+--- !u!212 &212119998293537684
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1753045451450168}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1969590225
+  m_SortingLayer: 4
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 6ea24da48756b344f8b1752afb6ef534, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.16, y: 0.2}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!212 &212253149856263012
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -152,12 +249,12 @@ SpriteRenderer:
   m_SortingLayerID: -1969590225
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3cc2320986bc3b041aa3eb366c6850f3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8c42cb669c74c2f4c8b3eb1875ded17f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.6, y: 1.28}
+  m_Size: {x: 0.8, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
