@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void YouLose() {
-        GameObject.FindObjectOfType<LevelManager>().LoadLevel("Lose");
+        GameObject.FindObjectOfType<LevelManager>().LoadLevel("Win");
         Destroy(gameObject);
     }
 

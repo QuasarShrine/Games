@@ -15,6 +15,7 @@ public class FormationController : MonoBehaviour
 
     private bool isGoingRight = true;
 
+    private ScoreKeeper scoreKeeper;
 
     // Use this for initialization
     void Start() {
@@ -25,6 +26,7 @@ public class FormationController : MonoBehaviour
         xmax = rightmost.x;
 
         SpanwUntilFull();
+        scoreKeeper = GameObject.Find("Score").GetComponent<ScoreKeeper>();
     }
 
     void SpawnEnemies() {
@@ -44,6 +46,7 @@ public class FormationController : MonoBehaviour
         MoveFormation();
 
         if (AllMembersAreDead()) {
+            scoreKeeper.Score(1000);
             SpanwUntilFull();
         }
     }

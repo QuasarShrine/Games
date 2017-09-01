@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ScoreKeeper : MonoBehaviour
 {
 
-    public int score;
+    public static int score;
 
     private Text text;
 
@@ -20,9 +20,8 @@ public class ScoreKeeper : MonoBehaviour
         text.text = score.ToString();
     }
 
-    public void Reset() {
+    public static void Reset() {
         score = 0;
-        text.text = score.ToString();
     }
 
 

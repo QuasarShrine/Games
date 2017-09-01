@@ -164,11 +164,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec964e7aa505ae49b7a31c6806f753f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 250
   speed: 7
   playSpacePadding: 0.45
+  weaponSlot: 1
   weaponType: {fileID: 1476194603989544, guid: e18f7789fa12a1d4f89ce14abe8fa215, type: 2}
-  fireRate: 0.1
+  fireRate: 0.24
+  power: 100
+  maxPower: 1000
+  frequency: 1
+  shieldRegen: 50
+  shieldMax: 200
+  shieldAmount: 100
+  restartShieldTime: 1
+  armor: 500
   hurt: {fileID: 8300000, guid: d7ca27aeec162d04fac8a24413108997, type: 3}
   die: {fileID: 8300000, guid: 7f8f7f9b2f76f5e4b996890741f43851, type: 3}
 --- !u!212 &212185871625073470
