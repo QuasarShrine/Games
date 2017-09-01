@@ -7,11 +7,12 @@ public class Projectile : MonoBehaviour {
     public float damage = 100f;
     public float speed = 7f;
     public float powerNeed = 5f;
+    public float soundVolume = 1f;
     public AudioClip soundEffect;
 
 
     public void Shoot() {
-        AudioSource.PlayClipAtPoint(soundEffect, transform.position,2f);
+        AudioSource.PlayClipAtPoint(soundEffect, transform.position, soundVolume);
     }
     public void Hit() {
         Destroy(gameObject);

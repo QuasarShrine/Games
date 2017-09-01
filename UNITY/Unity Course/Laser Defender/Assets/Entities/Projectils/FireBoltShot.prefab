@@ -108,6 +108,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
+  speed: 3
+  powerNeed: 5
+  soundVolume: 0.2
   soundEffect: {fileID: 8300000, guid: 00353024543bcaf4896f54f4cb310d46, type: 3}
 --- !u!212 &212493765006672244
 SpriteRenderer:

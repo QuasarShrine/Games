@@ -50,7 +50,7 @@ public class MusicPlayer : MonoBehaviour
                 music.Stop();
                 music.clip = winClip;
                 music.loop = true;
-                music.volume = 0.5f;
+                music.volume = 0.05f;
                 music.Play();
             }
         }

@@ -120,9 +120,9 @@ MonoBehaviour:
   health: 200
   scoreValue: 150
   weaponType: {fileID: 1476194603989544, guid: 2072592046b0527438d95d572595cd2c, type: 2}
-  projectileSpeed: 6
+  projectileSpeed: 3
   fireRate: 4
-  shotsPerSeconds: 1.35
+  shotsPerSeconds: 0.2
   hurt: {fileID: 8300000, guid: 62693954e230d18449b99dd6d9ddad51, type: 3}
   die: {fileID: 8300000, guid: 0aebf995ea241294287de9a7d3e169cb, type: 3}
 --- !u!212 &212107553649684456
