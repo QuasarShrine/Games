@@ -6,20 +6,26 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/Splash.unity
+    path: Assets/_Scenes/00 Splash.unity
     guid: 0d4380f8de3209e4582acdcf5fe8e15f
   - enabled: 1
-    path: Assets/_Scenes/_Start.unity
+    path: Assets/_Scenes/01a Start.unity
     guid: 96edbfea8facdb14ba5f544dfdaae57d
   - enabled: 1
-    path: Assets/_Scenes/Credit.unity
-    guid: f6512a266624897409358ff6919bf71f
+    path: Assets/_Scenes/01b Options.unity
+    guid: 1c88ff4768ca8f64896a015349daedef
   - enabled: 1
-    path: Assets/_Scenes/Game.unity
+    path: Assets/_Scenes/02 Level_1.unity
     guid: 5dc225f8992dadc4789d3865e9d04646
   - enabled: 1
-    path: Assets/_Scenes/Lose.unity
-    guid: 9e8df9cf64b293f46bb2dc318763355b
+    path: Assets/_Scenes/02 Level_2.unity
+    guid: 085c0ff000a8a114ba2be80cd338bae7
   - enabled: 1
-    path: Assets/_Scenes/Win.unity
+    path: Assets/_Scenes/02 Level_3.unity
+    guid: 8c42e4afa6eb29b449cb6dd6df2f273b
+  - enabled: 1
+    path: Assets/_Scenes/03a Win.unity
     guid: 688acf8478d0d3e4b898ae552169fa00
+  - enabled: 1
+    path: Assets/_Scenes/03b Lose.unity
+    guid: d5deb6ff8361b0149a2e9f8e776bd5e5

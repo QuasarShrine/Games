@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour {
 
     [Header("Splash Screen")]
     [Tooltip("How long, in seconds, does the splash screen have to appear. If '0', then this scene is not a splash screen")]
-    public float splashTime;
+    public float autoLoadLevel;
 
 
 	public void LoadLevel(string name) {
@@ -26,8 +26,8 @@ public class LevelManager : MonoBehaviour {
 	}
 
     public void Start() {
-        if(splashTime > 0) {
-            Invoke("LoadNextLevel", splashTime);
+        if(autoLoadLevel > 0) {
+            Invoke("LoadNextLevel", autoLoadLevel);
         }
     }
 
