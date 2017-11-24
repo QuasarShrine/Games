@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4791695605207466}
   - component: {fileID: 95064715616286206}
   - component: {fileID: 114282915251517936}
+  - component: {fileID: 61773911108989720}
+  - component: {fileID: 50096194855822534}
   m_Layer: 0
   m_Name: Lizard
   m_TagString: Untagged
@@ -71,6 +73,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50096194855822534
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1388123602880868}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &61773911108989720
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1388123602880868}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -2.0588512, y: -0.83732224}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.8825005, y: 1.3950003}
+    newSize: {x: 2.51, y: 1.86}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.4465742, y: 0.50060177}
+  m_EdgeRadius: 0
 --- !u!95 &95064715616286206
 Animator:
   serializedVersion: 3
@@ -99,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d58c1ab7a372d4abdafc1102e4350e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 1
+  currentSpeed: 0
 --- !u!212 &212473831393429296
 SpriteRenderer:
   m_ObjectHideFlags: 1
