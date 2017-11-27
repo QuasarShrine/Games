@@ -12,21 +12,18 @@ public class Lizard : MonoBehaviour {
 	void Start () {
         attacker = gameObject.GetComponent<Attacker>();
         animator = gameObject.GetComponent<Animator>();
-
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
 
-        if (collision.gameObject.name == "Gravestone" || collision.gameObject.name == "Gnome" || collision.gameObject.name == "Cactus" || collision.gameObject.name == "StarTrophy") {
+        if (collision.gameObject.GetComponent<Defender>()) {
             LizardAttack(collision.gameObject);
         }
     }
 
     private void LizardAttack(GameObject target) {
         animator.SetBool("isAttacking", true);
-        attacker.SetCurrentTarget(target);
-        attacker.StrikeCurrentTarget(10);
+        attacker.Attack(target);
     }
 
 

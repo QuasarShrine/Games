@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fox : MonoBehaviour {
+[RequireComponent(typeof(Attacker))]
+public class Fox : MonoBehaviour
+{
 
     private Attacker attacker;
     private Animator animator;
     //private GameObject target;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         attacker = gameObject.GetComponent<Attacker>();
         animator = gameObject.GetComponent<Animator>();
 
@@ -17,14 +19,16 @@ public class Fox : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if(collision.gameObject.name == "Gravestone") {
-            Debug.Log("Fox jump over");
-            FoxJump();
-        }
 
-        if (collision.gameObject.name == "Gnome" || collision.gameObject.name == "Cactus" || collision.gameObject.name == "StarTrophy") {
+
+        if (!collision.gameObject.GetComponent<Defender>()) {
+            return;
+        } else if (collision.gameObject.GetComponent<Wall>()) {
+            FoxJump();
+        } else {
             FoxAttack(collision.gameObject);
         }
+
     }
 
     private void FoxJump() {
@@ -33,13 +37,12 @@ public class Fox : MonoBehaviour {
 
     private void FoxAttack(GameObject target) {
         animator.SetBool("isAttacking", true);
-        attacker.SetCurrentTarget(target);
-        attacker.StrikeCurrentTarget(5);
+        attacker.Attack(target);
     }
 
 
     // Update is called once per frame
-    void Update () {
-		
-	}
+    void Update() {
+
+    }
 }
