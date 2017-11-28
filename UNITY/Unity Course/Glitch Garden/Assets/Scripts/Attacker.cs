@@ -22,6 +22,9 @@ public class Attacker : MonoBehaviour
     // Update is called once per frame
     void Update() {
         transform.Translate(Vector3.left * currentSpeed * Time.deltaTime);
+        if (!currentTarget) {
+            animator.SetBool("isAttacking", false);
+        }
 
     }
 
@@ -41,8 +44,6 @@ public class Attacker : MonoBehaviour
         if (currentTarget) {
             Debug.Log(name + " is dealing " + damage + " damage on " + currentTarget.name);
             currentTarget.GetComponent<Health>().LoseHealthPoints(damage);
-        } else {
-            animator.SetBool("isAttacking", false);
         }
     }
 
