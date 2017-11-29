@@ -4,10 +4,21 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 
-    public float speed, damage;
+    public float speed;
+    public int damage;
 
-	// Use this for initialization
-	void Start () {
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        Attacker attacker = collision.GetComponent<Attacker>();
+        Health health = collision.GetComponent<Health>();
+        if (attacker && health) {
+            health.LoseHealthPoints(damage);
+            Destroy(gameObject);
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -15,4 +26,5 @@ public class Projectile : MonoBehaviour {
 	void Update () {
         transform.Translate(Vector3.right * speed * Time.deltaTime);
 	}
+
 }
