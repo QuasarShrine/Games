@@ -25,11 +25,11 @@ public class Attacker : MonoBehaviour
         if (!currentTarget) {
             animator.SetBool("isAttacking", false);
         }
+        Debug.Log(Button.selectedDefender);
 
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        //Debug.Log(name + " trigger enter with " + collision.gameObject.name);
     }
 
     public float GetSpeed() {
