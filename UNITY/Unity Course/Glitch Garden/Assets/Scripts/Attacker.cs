@@ -25,7 +25,6 @@ public class Attacker : MonoBehaviour
         if (!currentTarget) {
             animator.SetBool("isAttacking", false);
         }
-        Debug.Log(Button.selectedDefender);
 
     }
 
