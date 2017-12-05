@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 4791695605207466}
   - component: {fileID: 95064715616286206}
   - component: {fileID: 114282915251517936}
+  - component: {fileID: 114580882590077982}
+  - component: {fileID: 114571298145824390}
   - component: {fileID: 61773911108989720}
   - component: {fileID: 50096194855822534}
-  - component: {fileID: 114571298145824390}
-  - component: {fileID: 114580882590077982}
   m_Layer: 0
   m_Name: Lizard
   m_TagString: Untagged
@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1723138206050414}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6, y: -0.6, z: 0}
+  m_LocalPosition: {x: 0.443, y: 0.221, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4791695605207466}
@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1388123602880868}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 4, z: 0}
+  m_LocalPosition: {x: 3, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4221778755285758}
@@ -148,7 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d58c1ab7a372d4abdafc1102e4350e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSpeed: 0
+  currentSpeed: 1
+  seenEverySeconds: 5
 --- !u!114 &114571298145824390
 MonoBehaviour:
   m_ObjectHideFlags: 1

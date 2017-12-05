@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 4816516631439196}
   - component: {fileID: 95073267245802470}
   - component: {fileID: 114575632313141038}
+  - component: {fileID: 114745774275731554}
+  - component: {fileID: 114172807282182770}
   - component: {fileID: 61021810722428880}
   - component: {fileID: 50778588684985540}
-  - component: {fileID: 114172807282182770}
-  - component: {fileID: 114745774275731554}
   m_Layer: 0
   m_Name: Fox
   m_TagString: Untagged
@@ -159,7 +159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d58c1ab7a372d4abdafc1102e4350e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSpeed: 0
+  currentSpeed: 0.33
+  seenEverySeconds: 10
 --- !u!114 &114745774275731554
 MonoBehaviour:
   m_ObjectHideFlags: 1

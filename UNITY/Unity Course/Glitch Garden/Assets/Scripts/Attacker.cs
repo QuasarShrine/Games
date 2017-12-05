@@ -8,9 +8,11 @@ public class Attacker : MonoBehaviour
 
     [Range(0f, 2f)]
     public float currentSpeed;
+    [Tooltip("Average number of seconds between appearences")]
+    public float seenEverySeconds;
+
 
     private GameObject currentTarget;
-
     private Animator animator;
 
     // Use this for initialization
