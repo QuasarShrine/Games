@@ -20,7 +20,7 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update() {
         foreach (GameObject attacker in entitiesToSpawn) {
-            if (IsTimeToSpawn(attacker)){
+            if (IsTimeToSpawn(attacker)) {
                 Spawn(attacker);
             }
         }
@@ -31,7 +31,18 @@ public class Spawner : MonoBehaviour
         spawnedEntity.transform.parent = transform;
     }
 
-    private bool IsTimeToSpawn(GameObject attacker) {
-        return true;
+    bool IsTimeToSpawn(GameObject attackerGameObject) {
+        Attacker attacker = attackerGameObject.GetComponent<Attacker>();
+        float meanSpawnDelay = attacker.seenEverySeconds;
+        float spawnsPerSecond = 1 / meanSpawnDelay;
+
+        if (Time.deltaTime > meanSpawnDelay) {
+            Debug.LogWarning("Spawn rate capped by frame rate");
+        }
+
+        float threshold = spawnsPerSecond * Time.deltaTime / 5;
+
+        return Random.value < threshold;
+
     }
 }

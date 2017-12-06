@@ -8,6 +8,7 @@ public class Attacker : MonoBehaviour
 
     [Range(0f, 2f)]
     public float currentSpeed;
+
     [Tooltip("Average number of seconds between appearences")]
     public float seenEverySeconds;
 
@@ -50,5 +51,9 @@ public class Attacker : MonoBehaviour
 
     public void Attack(GameObject target) {
         currentTarget = target;
+    }
+
+    public float GetSeenEverySeconds() {
+        return seenEverySeconds;
     }
 }
