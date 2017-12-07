@@ -577,51 +577,14 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114022777657582332, guid: 312ec75bf2c163746a48d3f835830d8a,
+        type: 2}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 812938309}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 312ec75bf2c163746a48d3f835830d8a, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &658360041 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1989116520724732, guid: 312ec75bf2c163746a48d3f835830d8a,
-    type: 2}
-  m_PrefabInternal: {fileID: 646643972}
---- !u!114 &658360043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 658360041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d10c75e266562034a95eff77cb80d6ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camera: {fileID: 812938309}
---- !u!61 &658360046
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 658360041}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1200, y: 675}
-  m_EdgeRadius: 0
 --- !u!20 &812938309 stripped
 Camera:
   m_PrefabParentObject: {fileID: 20199215204636044, guid: 476d591f1127f5b40ac5fca2698d895b,

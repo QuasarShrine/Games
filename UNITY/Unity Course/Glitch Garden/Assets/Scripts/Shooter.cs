@@ -27,6 +27,8 @@ public class Shooter : MonoBehaviour
         foreach (Spawner spawner in allSpawners) {
             if (spawner.transform.position.y == transform.position.y) {
                 myLaneSpawner = spawner;
+
+                Debug.Log("spawner "+spawner+ " for "+name+" at "+ spawner.transform.position.y);
                 return;
             }
         }
@@ -45,9 +47,8 @@ public class Shooter : MonoBehaviour
         int nbChidlren = myLaneSpawner.gameObject.transform.childCount;
         bool isAttackerAheadInLane = false;
         if (nbChidlren > 0) {
-
-            for (int i = 0; i < nbChidlren; i++) {
-                if (gameObject.transform.position.x < myLaneSpawner.gameObject.transform.GetChild(i).transform.position.x) {
+            foreach (Transform child in myLaneSpawner.transform) {
+                if (gameObject.transform.position.x < child.transform.position.x) {
                     isAttackerAheadInLane = true;
                 }
             }

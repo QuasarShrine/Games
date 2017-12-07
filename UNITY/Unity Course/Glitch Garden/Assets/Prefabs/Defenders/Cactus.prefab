@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1507631317791764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.035, y: 0.22, z: 0}
+  m_LocalPosition: {x: 0.035, y: 0.116, z: 0}
   m_LocalScale: {x: 0.6874635, y: 0.6874635, z: 0.6874635}
   m_Children: []
   m_Father: {fileID: 4594572521007164}
@@ -83,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1576483228820344}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.226, y: 0.096, z: 0}
+  m_LocalPosition: {x: -0.226, y: 0.072, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4594572521007164}
@@ -96,7 +96,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1638607338092748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 4228885129855850}
@@ -181,7 +181,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 1284631578725296, guid: 9104c141a8513054ca3d18b58a92f0f6, type: 2}
-  projectileParent: {fileID: 0}
   gun: {fileID: 1576483228820344}
 --- !u!114 &114982915138018456
 MonoBehaviour:
