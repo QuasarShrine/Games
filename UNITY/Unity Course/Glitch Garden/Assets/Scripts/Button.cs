@@ -23,7 +23,6 @@ public class Button : MonoBehaviour {
 	}
 
     private void OnMouseDown() {
-        print(name + " pressed");
         foreach (Button btn in buttonList) {
             btn.GetComponent<SpriteRenderer>().color = Color.black;
         }
