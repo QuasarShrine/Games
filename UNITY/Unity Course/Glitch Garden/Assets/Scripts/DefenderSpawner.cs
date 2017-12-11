@@ -9,10 +9,12 @@ public class DefenderSpawner : MonoBehaviour
 
     private GameObject defenderParent;
     public StarDisplay starDisplay;
+    private Message message;
 
     private void Start() {
         defenderParent = GameObject.Find("Defenders");
         starDisplay = GameObject.FindObjectOfType<StarDisplay>();
+        message = GameObject.FindObjectOfType<Message>();
 
         if (defenderParent == null) {
             defenderParent = new GameObject("Defenders");
@@ -30,7 +32,7 @@ public class DefenderSpawner : MonoBehaviour
         if (starDisplay.UseStars(starCost) == StarDisplay.Status.SUCCESS) {
             SpawnDefender(selectedDefender);
         } else {
-            Debug.LogError("Not enough stars");
+            message.SetText("Not enough Stars !");
         }
     }
 
