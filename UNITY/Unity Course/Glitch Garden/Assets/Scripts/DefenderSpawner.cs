@@ -27,12 +27,16 @@ public class DefenderSpawner : MonoBehaviour
     }
 
     private void OnMouseDown() {
-        GameObject selectedDefender = Button.selectedDefender;
-        int starCost = selectedDefender.GetComponent<Defender>().starCost;
-        if (starDisplay.UseStars(starCost) == StarDisplay.Status.SUCCESS) {
-            SpawnDefender(selectedDefender);
+        if (Button.selectedDefender) {
+            GameObject selectedDefender = Button.selectedDefender;
+            int starCost = selectedDefender.GetComponent<Defender>().starCost;
+            if (starDisplay.UseStars(starCost) == StarDisplay.Status.SUCCESS) {
+                SpawnDefender(selectedDefender);
+            } else {
+                message.SetText("Not enough Stars !");
+            }
         } else {
-            message.SetText("Not enough Stars !");
+            message.SetText("No defender selected. Please select a defender and place it on the battleground.");
         }
     }
 

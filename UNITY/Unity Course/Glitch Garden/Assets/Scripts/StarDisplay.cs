@@ -37,4 +37,8 @@ public class StarDisplay : MonoBehaviour
         UpdateDisplay();
 
     }
+
+    public int GetStarsAmount() {
+        return _STARS;
+    }
 }

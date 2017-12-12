@@ -7,9 +7,12 @@ public class GameTimer : MonoBehaviour
 {
 
     private Slider slider;
+    private ImportantMessage importantMessage;
+    private LevelManager levelManager;
+    private bool gameWon;
+
     public AudioClip winSound;
 
-    public ImportantMessage importantMessage;
 
     [Tooltip("Set the level's time duration (seconds)")]
     [Range(10, 240)]
@@ -18,13 +21,15 @@ public class GameTimer : MonoBehaviour
     // Use this for initialization
     void Start() {
         slider = GetComponent<Slider>();
+        gameWon = false;
         importantMessage = GameObject.FindObjectOfType<ImportantMessage>();
+        levelManager = GameObject.FindObjectOfType<LevelManager>();
     }
 
     // Update is called once per frame
     void Update() {
         float timeSinceStart = Time.timeSinceLevelLoad;
-        if (timeSinceStart >= duration) {
+        if (timeSinceStart >= duration && !gameWon) {
             Win();
         } else {
             slider.value = timeSinceStart / duration;
@@ -33,5 +38,12 @@ public class GameTimer : MonoBehaviour
 
     public void Win() {
         importantMessage.SetText("You survived " + duration + "s ! Congratulations !");
+        AudioSource.PlayClipAtPoint(winSound, transform.position);
+        gameWon = true;
+        Invoke("LoadNextLevel", winSound.length);
+    }
+
+    public void LoadNextLevel() {
+        levelManager.LoadNextLevel();
     }
 }

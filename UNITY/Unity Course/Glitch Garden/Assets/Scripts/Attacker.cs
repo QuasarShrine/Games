@@ -44,8 +44,10 @@ public class Attacker : MonoBehaviour
 
     public void StrikeCurrentTarget(int damage) {
         if (currentTarget) {
-            Debug.Log(name + " is dealing " + damage + " damage on " + currentTarget.name);
             currentTarget.GetComponent<Health>().LoseHealthPoints(damage);
+            if (currentTarget.GetComponent<Wall>()) {
+                currentTarget.GetComponent<Wall>().IsAttacked();
+            }
         }
     }
 
