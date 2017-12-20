@@ -40,7 +40,16 @@ public class GameTimer : MonoBehaviour
         importantMessage.SetText("You survived " + duration + "s ! Congratulations !");
         AudioSource.PlayClipAtPoint(winSound, transform.position);
         gameWon = true;
+        DestroyAllTaggedObjects();
         Invoke("LoadNextLevel", winSound.length);
+    }
+
+    public void DestroyAllTaggedObjects() {
+        GameObject[] allTaggedObjects;
+        allTaggedObjects = GameObject.FindGameObjectsWithTag("destroyOnWin");
+        foreach (var gameObj in allTaggedObjects) {
+            Destroy(gameObj);
+        }
     }
 
     public void LoadNextLevel() {

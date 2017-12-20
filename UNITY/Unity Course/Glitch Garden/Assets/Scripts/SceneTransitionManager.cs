@@ -12,7 +12,7 @@ public class SceneTransitionManager : MonoBehaviour
     private Color currentColor;
 
     [Tooltip("Is this a fade out effect ?")]
-    bool isFadeOut = false;
+    public bool isFadeOut = false;
 
     // Use this for initialization
     void Start() {

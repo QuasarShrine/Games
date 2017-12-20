@@ -11,11 +11,13 @@ public class LevelManager : MonoBehaviour {
 
 
 	public void LoadLevel(string name) {
-		SceneManager.LoadScene(name);
+        Time.timeScale = 1; // reseting timescal if the game was paused
+        SceneManager.LoadScene(name);
 	}
 
 	public void LoadNextLevel() {
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Time.timeScale = 1; // reseting timescal if the game was paused
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 	}
 
 	public void QuitRequest() {

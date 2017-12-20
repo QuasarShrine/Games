@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114581284031018174}
   m_Layer: 0
   m_Name: Gravestone
-  m_TagString: Untagged
+  m_TagString: destroyOnWin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
