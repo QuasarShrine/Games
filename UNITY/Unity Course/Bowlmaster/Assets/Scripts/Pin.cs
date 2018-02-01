@@ -1,0 +1,26 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Pin : MonoBehaviour
+{
+
+    public float standingThreshold;
+
+    public bool IsStanding() {
+        if (Mathf.Abs(transform.eulerAngles.x) < standingThreshold && Mathf.Abs(transform.eulerAngles.z) < standingThreshold) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    // Use this for initialization
+    void Start() {
+    }
+
+    // Update is called once per frame
+    void Update() {
+    }
+}
