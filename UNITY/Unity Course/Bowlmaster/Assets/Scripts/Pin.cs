@@ -8,7 +8,7 @@ public class Pin : MonoBehaviour
     public float standingThreshold;
 
     public bool IsStanding() {
-        if (Mathf.Abs(transform.eulerAngles.x) < standingThreshold && Mathf.Abs(transform.eulerAngles.z) < standingThreshold) {
+        if (Mathf.Abs(270 - transform.eulerAngles.x) < standingThreshold && Mathf.Abs(transform.eulerAngles.z) < standingThreshold) {
             return true;
         } else {
             return false;
