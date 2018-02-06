@@ -32,16 +32,10 @@ public class DragLaunch : MonoBehaviour
             // launch the ball
             mousePosEnd = Input.mousePosition;
             dragEndTime = Time.time;
-            //Debug.Log("mousePosStart : " + mousePosStart);
-            //Debug.Log("dragStatTime : " + dragStatTime);
-            //Debug.Log("mousePosEnd : " + mousePosEnd);
-            //Debug.Log("dragEndTime : " + dragEndTime);
-            //Debug.Log("================ end at "+ dragEndTime +" =================");
-            //float distance = Vector3.Distance(mousePosEnd,mousePosStart);
             float timeLapse = dragEndTime - dragStatTime;
             float speedX = (mousePosEnd.x - mousePosStart.x) / timeLapse;
             float speedZ = (mousePosEnd.y - mousePosStart.y) / timeLapse;
-            //float velocity = 400;
+
             Vector3 launchVector = new Vector3(speedX, 0, speedZ);
             ball.Launch(launchVector);
         }

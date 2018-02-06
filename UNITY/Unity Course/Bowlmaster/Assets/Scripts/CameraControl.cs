@@ -19,4 +19,8 @@ public class CameraControl : MonoBehaviour {
             transform.position = ball.transform.position + offset;
         }
 	}
+
+    public void Reset() {
+        transform.position = ball.transform.position + offset;
+    }
 }
