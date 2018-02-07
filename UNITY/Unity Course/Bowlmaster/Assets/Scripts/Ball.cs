@@ -38,11 +38,10 @@ public class Ball : MonoBehaviour {
     public void Reset() {
         gameObject.transform.position = initialBallPos;
         body.velocity = Vector3.zero;
+        body.angularVelocity = Vector3.zero;
         body.useGravity = false;
         isBallLaunched = false;
         inPlay = false;
-        mainCamera.GetComponent<CameraControl>().Reset();
-
     }
 
 }

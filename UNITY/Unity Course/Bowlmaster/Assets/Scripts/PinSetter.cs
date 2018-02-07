@@ -43,6 +43,7 @@ public class PinSetter : MonoBehaviour
 
     void PinsHaveSettled() {
         lastStandingCount = -1; // new game
+        ballEnteredBox = false;
         ball.Reset();
         standingDisplay.color = Color.green;
     }
@@ -66,5 +67,13 @@ public class PinSetter : MonoBehaviour
             if (pin.IsStanding()) { nbStandingPins++; }
         }
         return nbStandingPins;
+    }
+
+    public void TriggerReset() {
+        GetComponent<Animator>().SetTrigger("resetTrigger");
+    }
+
+    public void TriggerTidy() {
+        GetComponent<Animator>().SetTrigger("tidyTrigger");
     }
 }

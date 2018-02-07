@@ -15,12 +15,8 @@ public class CameraControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (transform.position.z <= 1700f) {
+        if (ball.transform.position.z <= 1829f) {
             transform.position = ball.transform.position + offset;
         }
 	}
-
-    public void Reset() {
-        transform.position = ball.transform.position + offset;
-    }
 }
