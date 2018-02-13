@@ -5,17 +5,15 @@ using UnityEngine;
 public class Ball : MonoBehaviour {
 
     private Rigidbody body;
-
     private Vector3 initialBallPos;
+    private Camera mainCamera;
+    private AudioSource audioSource;
 
     public bool inPlay;
-
     public bool isBallLaunched = false;
     public Vector3 launchVelocity;
 
-    private Camera mainCamera;
 
-    private AudioSource audioSource;
 	// Use this for initialization
 	void Start () {
         initialBallPos = gameObject.transform.position;

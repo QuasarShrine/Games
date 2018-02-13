@@ -24,11 +24,11 @@ public class PinSetter : MonoBehaviour
         standingDisplay.text = CountStanding().ToString();
 
         if (ballEnteredBox) {
-            CheckStanding();
+            UpdateStandingCountAndSettle();
         }
     }
 
-    void CheckStanding() {
+    void UpdateStandingCountAndSettle() {
         int currentStanding = CountStanding();
         if (currentStanding != lastStandingCount) {
             lastChangedTime = Time.time;
