@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="habillage-cube_CONSERTO" size="20.000000 20.004799" />
+    <ImageTarget name="image5" size="0.200000 0.096830" />
+    <ImageTarget name="conserto-300x228" size="0.200000 0.152000" />
+  </Tracking>
+</QCARConfig>
