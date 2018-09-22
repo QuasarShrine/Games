@@ -4,25 +4,28 @@ using UnityEngine;
 
 public class WheelBehaviour : MonoBehaviour {
 
+  public KeyCode leftKey;
+  public KeyCode rightKey;
+
   [Range(1f,10f)]
   public float acceleration;
 
-  private Rigidbody2D rigidbody2D;
+  private Rigidbody2D body2D;
 
 	// Use this for initialization
 	void Start () {
-    rigidbody2D = GetComponent<Rigidbody2D>();
+    body2D = GetComponent<Rigidbody2D>();
 
   }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-    if (Input.GetKey(KeyCode.LeftArrow)) {
-      rigidbody2D.AddForce(Vector2.left * acceleration);
+    if (Input.GetKey(leftKey)) {
+      body2D.AddForce(Vector2.left * acceleration);
     }
 
-    if (Input.GetKey(KeyCode.RightArrow)) {
-      rigidbody2D.AddForce(Vector2.right * acceleration);
+    if (Input.GetKey(rightKey)) {
+      body2D.AddForce(Vector2.right * acceleration);
     }
   }
 
