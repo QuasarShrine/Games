@@ -26,6 +26,7 @@ public class RpgMovement : MonoBehaviour {
   [Range(1f, 5f)]
   public float runSpeedFactor = 2f;
 
+  private Collider2D[] colliders;
   // Use this for initialization
   void Start() {
 
