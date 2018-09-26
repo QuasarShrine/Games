@@ -197,6 +197,11 @@ Prefab:
       propertyPath: downColl
       value: 
       objectReference: {fileID: 567359941}
+    - target: {fileID: 114195428712811764, guid: b1950eab91051e44592bf80705eb8e25,
+        type: 2}
+      propertyPath: upColl
+      value: 
+      objectReference: {fileID: 567359945}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1950eab91051e44592bf80705eb8e25, type: 2}
   m_IsPrefabAsset: 0
@@ -494,7 +499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2479c172fed99954199b1d86860248b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 567359940}
 --- !u!1001 &1259774033
 Prefab:
   m_ObjectHideFlags: 0
