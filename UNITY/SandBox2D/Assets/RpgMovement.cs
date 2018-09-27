@@ -58,7 +58,7 @@ public class RpgMovement : MonoBehaviour {
     }
   }
 
-  public void OnTriggerStay2D(Collider2D collision) {
+  public void OnTriggerEnter2D(Collider2D collision) {
     if (collision.gameObject.CompareTag("Ground")) {
       if (upColl.IsTouching(collision)) {
         canNotGoDir.Add(Direction.up);
@@ -76,6 +76,7 @@ public class RpgMovement : MonoBehaviour {
       }
       if (rightColl.IsTouching(collision)) {
         canNotGoDir.Add(Direction.right);
+        Debug.Log("truc a droite");
       } else {
         if (canNotGoDir.Contains(Direction.right)) {
           canNotGoDir.Remove(Direction.right);
@@ -117,7 +118,7 @@ public class RpgMovement : MonoBehaviour {
         }
       }
     }
-    Debug.Log(canNotGoDir);
+    Debug.Log(canNotGoDir.Contains(Direction.right));
   }
 
 
